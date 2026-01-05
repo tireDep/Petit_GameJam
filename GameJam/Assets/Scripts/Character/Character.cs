@@ -12,7 +12,6 @@ namespace Game.Characters
         // 외부에서 접근 가능하도록 protected로 둠 — 파생 클래스가 상태를 변경/확인할 수 있어야 함
         protected bool isAlive = true;
         
-        // 공용 변수
         protected Rigidbody rb;
         protected Renderer render;
         protected Vector3 moveInput = Vector3.zero;

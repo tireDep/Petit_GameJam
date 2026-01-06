@@ -122,6 +122,7 @@ namespace Game.Characters
             // 기존 속도 zero 처리
             SetAllVelocityZero();
             
+            // todo : 랜덤 넉백값 추가?
             // 넉백 처리
             isKnockbacked = true;
             knockbackDirection.y = 0.0f;

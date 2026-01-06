@@ -172,7 +172,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &5129764699982739038
 MonoBehaviour:
@@ -187,6 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Characters.PlayerCharacter
   moveSpeed: 5
+  knockbackForce: 5
+  knockbackDuration: 0.2
+  blinkDuration: 0.1
+  blinkCount: 3
+  basicMaterial: {fileID: 2100000, guid: c94b8b2562b4a49488872fc6002d822b, type: 2}
+  knockbackMaterial: {fileID: 2100000, guid: 86369b95371b8a8498ef81e5a3f7f887, type: 2}
 --- !u!114 &4002890471919185850
 MonoBehaviour:
   m_ObjectHideFlags: 0

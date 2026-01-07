@@ -21,7 +21,7 @@ namespace Game.Characters
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            render = GetComponentInChildren<Renderer>();
+            renders.AddRange(GetComponentsInChildren<Renderer>());
         }
 
         /// 추적할 대상(플레이어 Transform)을 설정합니다.

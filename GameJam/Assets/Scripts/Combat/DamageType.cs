@@ -4,6 +4,7 @@
     {
         DT_INVALID = 0,
         
+        DT_PLAYER,
         DT_ENEMY,
         DT_SHARED, // == DT_PLAYER
         DT_ENVIRONMENTAL,

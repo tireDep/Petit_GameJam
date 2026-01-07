@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Characters
@@ -13,7 +14,7 @@ namespace Game.Characters
         protected bool isAlive = true;
         
         protected Rigidbody rb;
-        protected Renderer render;
+        protected List<Renderer> renders = new List<Renderer>();
         protected Vector3 moveInput = Vector3.zero;
         protected bool isKnockbacked = false;   // 넉백 여부
         protected Coroutine blinkCoroutine;
@@ -154,19 +155,26 @@ namespace Game.Characters
         {
             while (isKnockbacked)
             {
-                if (render.sharedMaterial == basicMaterial)
+                for (int index = 0; index < renders.Count; index++)
                 {
-                    render.material = knockbackMaterial;
-                }
-                else if (render.sharedMaterial == knockbackMaterial)
-                {
-                    render.material = basicMaterial;   
+                    if (renders[index].sharedMaterial == basicMaterial)
+                    {
+                        renders[index].material = knockbackMaterial;
+                    }
+                    else if (renders[index].sharedMaterial == knockbackMaterial)
+                    {
+                        renders[index].material = basicMaterial;   
+                    }
                 }
             
                 yield return new WaitForSeconds(blinkDuration);
             }
+
+            for (int index = 0; index < renders.Count; index++)
+            {
+                renders[index].material = basicMaterial;   
+            }
             
-            render.material = basicMaterial;
             blinkCoroutine = null;
         }
 

@@ -42,7 +42,7 @@ namespace Game.Combat
                 return;
             }
 
-            SetAttacker(attacker);
+            base.attacker = attacker;
             this.direction = direction.normalized;
             isActive = true;
             gameObject.SetActive(true);
@@ -64,6 +64,24 @@ namespace Game.Combat
             //     return;
 
             Deactivate();
+            
+            CalculateDamage(out var damageDealt, out var damageTaken);
+            
+            // 입힌 데미지 처리
+            if (damageDealt > 0.0f)
+            {
+                SharedHealth sharedHealth = collision.gameObject.GetComponent<SharedHealth>();
+                if(sharedHealth != null)
+                    sharedHealth.TakeDamage(damageDealt);
+            }
+
+            // 받은 데미지 처리
+            if (damageTaken > 0.0f)
+            {
+                SharedHealth mySharedHealth = gameObject.GetComponent<SharedHealth>();
+                if(mySharedHealth != null)
+                    mySharedHealth.TakeDamage(damageTaken);
+            }
         }
 
         public override void ResetAttack()

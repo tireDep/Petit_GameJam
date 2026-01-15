@@ -8,40 +8,36 @@ namespace Game.Combat
         [SerializeField] 
         private float maxHealth = 10.0f;
         
-        [ReadOnly(false)]
+        [SerializeField]
         private float currentHealth = 0.0f;
 
-        // 데미지 계산 함수
-        public void CalculateDamage(DamageType damageType, float damage)
+        [SerializeField]
+        private bool isDead = false;
+        
+        public bool CheckDead { get { return isDead; } }
+
+        private void Start()
         {
-            switch (damageType)
+            ResetHealth();
+        }
+
+        public void TakeDamage(float damageTaken)
+        {
+            if (isDead)
+                return;
+            
+            currentHealth -= damageTaken;
+            if (currentHealth <= 0.0f)
             {
-                case DamageType.DT_ENEMY:
-                {
-                    
-                }
-                    break;
-                case DamageType.DT_ENVIRONMENTAL:
-                {
-                    
-                }
-                    break;
-                case DamageType.DT_INSTANTKILL:
-                {
-                    
-                }
-                    break;
-                case DamageType.DT_SHARED:
-                {
-                    
-                }
-                    break;
-                default:
-                {
-                    Debug.LogWarning("CalculateDamage DamageType not implemented");
-                }
-                    break;
+                isDead = true;
+                Debug.Log("SET DEAD!");
             }
+        }
+        
+        public void ResetHealth()
+        {
+            currentHealth = maxHealth;
+            isDead = false;
         }
         
     }

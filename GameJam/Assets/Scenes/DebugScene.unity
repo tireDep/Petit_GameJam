@@ -119,6 +119,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &233652950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
+  m_PrefabInstance: {fileID: 1679511578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &830641282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
+  m_PrefabInstance: {fileID: 1491802404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &830641292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830641282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
+  maxHealth: 10
+  currentHealth: 0
+  isDead: 0
 --- !u!1001 &863640569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853587297562519150, guid: cd1f92780870e5b4e9f791dad6b2b2f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 853587297562519150, guid: cd1f92780870e5b4e9f791dad6b2b2f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -198,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853587297562519150, guid: cd1f92780870e5b4e9f791dad6b2b2f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 853587297562519150, guid: cd1f92780870e5b4e9f791dad6b2b2f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -238,6 +263,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 657086086551020153, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
   m_PrefabInstance: {fileID: 1679511578}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1263601254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233652950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
+  maxHealth: 10
+  currentHealth: 0
+  isDead: 0
 --- !u!1001 &1491802404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,17 +290,9 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1263601249}
-    - target: {fileID: 5091212512373789604, guid: e30d71a3e22446543942918a8af557b3, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8558185956363150838, guid: e30d71a3e22446543942918a8af557b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,10 +334,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4107695405561254168, guid: e30d71a3e22446543942918a8af557b3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830641292}
   m_SourcePrefab: {fileID: 100100000, guid: e30d71a3e22446543942918a8af557b3, type: 3}
 --- !u!1001 &1679511578
 PrefabInstance:
@@ -359,14 +395,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1263601254}
   m_SourcePrefab: {fileID: 100100000, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
 --- !u!1001 &1772814482471691649
 PrefabInstance:

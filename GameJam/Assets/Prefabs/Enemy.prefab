@@ -126,9 +126,10 @@ GameObject:
   - component: {fileID: 2668084212320464349}
   - component: {fileID: 3090147586446529764}
   - component: {fileID: 5091212512373789604}
+  - component: {fileID: 5601582529501016218}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba49ff5706abbb4ab4fc67fc8b664ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Characters.EnemyCharacter
-  moveSpeed: 3
+  moveSpeed: 5
   knockbackForce: 5
   knockbackDuration: 0.7
   blinkDuration: 0.1
@@ -218,3 +219,18 @@ MonoBehaviour:
   knockbackMaterial: {fileID: 2100000, guid: 86369b95371b8a8498ef81e5a3f7f887, type: 2}
   stopDistance: 1
   target: {fileID: 0}
+  attackDamage: 0
+--- !u!114 &5601582529501016218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564146274724886777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a9e1c22f884f91a5adad0744223660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.CrashAttack
+  settingDamageType: 2
+  settingDamage: 5

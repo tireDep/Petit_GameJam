@@ -99,7 +99,6 @@ namespace Game.Characters
                 Debug.Log("Knockbacked");
                 return;
             }
-                
             
             if (!isAlive)
             {

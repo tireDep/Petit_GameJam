@@ -185,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d591e4c8acc54f36adf935e2c510dc1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectile
-  attackInfo:
-    damageType: 0
-    damage: 0
+  settingDamageType: 1
+  settingDamage: 2
   speed: 10

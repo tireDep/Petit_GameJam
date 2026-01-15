@@ -1,6 +1,8 @@
 using System;
+using Game.Combat;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
 namespace Game.Characters
 {
@@ -17,6 +19,10 @@ namespace Game.Characters
 
         [SerializeField]
         private Transform target;
+
+        // 충돌 공격 데미지
+        [SerializeField] 
+        private float attackDamage;
 
         private void Awake()
         {
@@ -48,10 +54,16 @@ namespace Game.Characters
             // Target 확인
             if (target == null)
             {
-                moveInput = Vector3.zero;
-                return;
+                return;   
             }
-
+            
+            SharedHealth sharedHealth = target.GetComponent<SharedHealth>();
+            if (sharedHealth != null && sharedHealth.CheckDead)
+            {
+                moveInput = Vector3.zero;
+                return;   
+            }
+            
             // 플레이어 방향 계산
             Vector3 directionToTarget = target.position - transform.position;
             float distanceToTarget = directionToTarget.magnitude;

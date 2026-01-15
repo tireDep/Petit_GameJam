@@ -100,7 +100,7 @@ namespace Game.Characters
                 return;
             }
             
-            if (!isAlive)
+            if (!IsAlive)
             {
                 moveInput = Vector2.zero;
                 return;
@@ -119,7 +119,6 @@ namespace Game.Characters
             
             moveInput = moveValue;
             
-            Debug.Log("movevalue" + moveValue);
             // 이동 방향으로 캐릭터 90도씩 정확히 회전 (W=90도, D=180도, S=270도, A=0도)
             if (moveInput != Vector3.zero)
             {
@@ -136,7 +135,7 @@ namespace Game.Characters
 
         void OnAttack(InputValue value)
         {
-            if (!isAlive)
+            if (!IsAlive)
                 return;
 
             // 쿨타임 확인
@@ -184,13 +183,13 @@ namespace Game.Characters
 
         private void Update()
         {
-            if (!isAlive)
+            if (!IsAlive)
                 return;
         }
 
         private void FixedUpdate()
         {
-            if (!isAlive) 
+            if (!IsAlive) 
                 return;
 
             if (rb == null)

@@ -30,6 +30,7 @@ namespace Game.Combat
             if (currentHealth <= 0.0f)
             {
                 isDead = true;
+                gameObject.SetActive(false);
                 Debug.Log("SET DEAD!");
             }
         }

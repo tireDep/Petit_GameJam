@@ -45,7 +45,7 @@ namespace Game.Characters
             if (isKnockbacked)
                 return;
             
-            if (!isAlive)
+            if (!IsAlive)
             {
                 moveInput = Vector3.zero;
                 return;
@@ -95,7 +95,7 @@ namespace Game.Characters
 
         private void FixedUpdate()
         {
-            if (!isAlive) 
+            if (!IsAlive) 
                 return;
             
             if (rb == null) 

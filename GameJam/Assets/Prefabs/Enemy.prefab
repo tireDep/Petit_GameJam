@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 280797198373694227}
   - component: {fileID: 2578617767222495002}
   - component: {fileID: 6140806269668854467}
-  - component: {fileID: 4107695405561254168}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -91,29 +90,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4107695405561254168
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079609706248426203}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6564146274724886777
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +103,7 @@ GameObject:
   - component: {fileID: 3090147586446529764}
   - component: {fileID: 5091212512373789604}
   - component: {fileID: 5601582529501016218}
+  - component: {fileID: 375112144067089284}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -219,7 +196,6 @@ MonoBehaviour:
   knockbackMaterial: {fileID: 2100000, guid: 86369b95371b8a8498ef81e5a3f7f887, type: 2}
   stopDistance: 1
   target: {fileID: 0}
-  attackDamage: 0
 --- !u!114 &5601582529501016218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +210,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.CrashAttack
   settingDamageType: 2
   settingDamage: 5
+--- !u!114 &375112144067089284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564146274724886777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
+  maxHealth: 10
+  currentHealth: 0
+  isDead: 0

@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 2153504950153513720}
   - component: {fileID: 5129764699982739038}
   - component: {fileID: 4002890471919185850}
+  - component: {fileID: 8212265808520663405}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -372,3 +373,18 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerInput
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8212265808520663405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588601130082805696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
+  maxHealth: 10
+  currentHealth: 0
+  isDead: 0

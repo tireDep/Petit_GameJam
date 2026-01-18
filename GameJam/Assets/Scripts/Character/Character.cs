@@ -11,7 +11,7 @@ namespace Game.Characters
     public abstract class Character : MonoBehaviour
     {
         protected SharedHealth sharedHealth;
-        protected bool IsAlive => sharedHealth != null && !sharedHealth.CheckDead;
+        protected bool isAlive => sharedHealth != null && !sharedHealth.CheckDead;
         
         protected Rigidbody rb;
         protected List<Renderer> renders = new List<Renderer>();
@@ -46,12 +46,15 @@ namespace Game.Characters
         }
 
         // 충돌시 넉백처리
-        protected virtual void SetKnockback(Vector3 knockbackDirection)
+        protected virtual void SetKnockback( Vector3 knockbackDirection)
         {
+            if (isActiveAndEnabled == false)
+                return;
+            
             if (rb == null)
                 return;
 
-            if (isKnockbacked)
+            if (isKnockbacked || isAlive == false)
                 return;
             
             // 기존 속도 zero 처리

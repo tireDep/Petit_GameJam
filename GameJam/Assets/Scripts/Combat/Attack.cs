@@ -9,7 +9,7 @@ namespace Game.Combat
         
         DT_PLAYER,
         DT_ENEMY,
-        DT_SHARED, // == DT_PLAYER
+        DT_SHARED,
         DT_ENVIRONMENTAL,
         DT_INSTANTKILL,
         
@@ -46,6 +46,8 @@ namespace Game.Combat
         {
             attackInfo.damageType = settingDamageType;
             attackInfo.damage = settingDamage;
+            
+            attacker = gameObject;
         }
 
         // 재사용 시 초기화
@@ -63,22 +65,18 @@ namespace Game.Combat
             
             switch (attackInfo.damageType)
             {
-                case DamageType.DT_ENEMY:
+                case DamageType.DT_ENVIRONMENTAL:
                 {
                     outDamageDealt = attackInfo.damage;
                 }
                     break;
-                case DamageType.DT_ENVIRONMENTAL:
-                {
-                    outDamageTaken = attackInfo.damage;
-                }
-                    break;
                 case DamageType.DT_INSTANTKILL:
                 {
-                    outDamageTaken = attackInfo.damage;
+                    outDamageDealt = attackInfo.damage;
                 }
                     break;
                 case DamageType.DT_PLAYER:
+                case DamageType.DT_ENEMY:
                 case DamageType.DT_SHARED:
                 {
                     outDamageDealt = attackInfo.damage;
@@ -90,6 +88,27 @@ namespace Game.Combat
                     Debug.LogWarning("CalculateDamage DamageType not implemented");
                 }
                     break;
+            }
+        }
+
+        public virtual void ProcessAttackDamage(Collision other)
+        {
+            CalculateDamage(out var damageDealt, out var damageTaken);
+            
+            // 입힌 데미지 처리
+            if (damageDealt > 0.0f)
+            {
+                SharedHealth sharedHealth = other.gameObject.GetComponent<SharedHealth>();
+                if(sharedHealth != null)
+                    sharedHealth.TakeDamage(damageDealt);
+            }
+
+            // 받은 데미지 처리
+            if (damageTaken > 0.0f)
+            {
+                SharedHealth mySharedHealth = gameObject.GetComponent<SharedHealth>();
+                if(mySharedHealth != null)
+                    mySharedHealth.TakeDamage(damageTaken);
             }
         }
     }

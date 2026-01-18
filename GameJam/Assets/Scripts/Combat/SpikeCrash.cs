@@ -1,10 +1,8 @@
-﻿using System;
-using System.Buffers.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Combat
 {
-    public class CrashAttack : Attack
+    public class SpikeCrash : Attack
     {
         public void OnCollisionEnter(Collision other)
         {

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Game.Combat
 {
@@ -57,33 +59,13 @@ namespace Game.Combat
             gameObject.SetActive(false);
         }
 
-        private void OnTriggerEnter(Collider collision)
+        public void OnCollisionEnter(Collision other)
         {
-            // // 자신의 공격자와의 충돌은 무시
-            // if (collision.gameObject == attacker)
-            //     return;
+            base.ProcessAttackDamage(other);
 
             Deactivate();
-            
-            CalculateDamage(out var damageDealt, out var damageTaken);
-            
-            // 입힌 데미지 처리
-            if (damageDealt > 0.0f)
-            {
-                SharedHealth sharedHealth = collision.gameObject.GetComponent<SharedHealth>();
-                if(sharedHealth != null)
-                    sharedHealth.TakeDamage(damageDealt);
-            }
-
-            // 받은 데미지 처리
-            if (damageTaken > 0.0f)
-            {
-                SharedHealth mySharedHealth = gameObject.GetComponent<SharedHealth>();
-                if(mySharedHealth != null)
-                    mySharedHealth.TakeDamage(damageTaken);
-            }
         }
-
+        
         public override void ResetAttack()
         {
             isActive = false;

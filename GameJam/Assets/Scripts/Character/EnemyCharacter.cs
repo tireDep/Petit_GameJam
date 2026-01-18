@@ -20,10 +20,6 @@ namespace Game.Characters
         [SerializeField]
         private Transform target;
 
-        // 충돌 공격 데미지
-        [SerializeField] 
-        private float attackDamage;
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -45,7 +41,7 @@ namespace Game.Characters
             if (isKnockbacked)
                 return;
             
-            if (!IsAlive)
+            if (!isAlive)
             {
                 moveInput = Vector3.zero;
                 return;
@@ -95,7 +91,7 @@ namespace Game.Characters
 
         private void FixedUpdate()
         {
-            if (!IsAlive) 
+            if (!isAlive) 
                 return;
             
             if (rb == null) 

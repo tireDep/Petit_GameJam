@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 444995696342824}
   - component: {fileID: 358045430013171630}
+  - component: {fileID: 2810878168108171670}
+  - component: {fileID: 5330235509770071889}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Obstacle
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +58,32 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2810878168108171670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917313277999437111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b9293bb07240c0978cd87e7a4a2675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Hazard.Spike
+--- !u!114 &5330235509770071889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917313277999437111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6435c59e7bb344d59b5093a8aa61b4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SpikeCrash
+  settingDamageType: 4
+  settingDamage: 5
 --- !u!1 &7047001942110322824
 GameObject:
   m_ObjectHideFlags: 0

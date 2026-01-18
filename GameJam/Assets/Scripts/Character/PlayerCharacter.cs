@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Combat;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -100,7 +101,7 @@ namespace Game.Characters
                 return;
             }
             
-            if (!IsAlive)
+            if (!isAlive)
             {
                 moveInput = Vector2.zero;
                 return;
@@ -135,7 +136,7 @@ namespace Game.Characters
 
         void OnAttack(InputValue value)
         {
-            if (!IsAlive)
+            if (!isAlive)
                 return;
 
             // 쿨타임 확인
@@ -183,13 +184,13 @@ namespace Game.Characters
 
         private void Update()
         {
-            if (!IsAlive)
+            if (!isAlive)
                 return;
         }
 
         private void FixedUpdate()
         {
-            if (!IsAlive) 
+            if (!isAlive) 
                 return;
 
             if (rb == null)
@@ -202,7 +203,7 @@ namespace Game.Characters
 
         private void OnCollisionEnter(Collision other)
         {
-            SetKnockback(other.contacts[0].normal);
+            SetKnockback((transform.position - other.transform.position).normalized);
         }
     }
 }

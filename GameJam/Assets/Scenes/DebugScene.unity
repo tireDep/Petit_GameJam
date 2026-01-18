@@ -119,31 +119,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &233652950 stripped
+--- !u!1 &533475055 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
-  m_PrefabInstance: {fileID: 1679511578}
+  m_CorrespondingSourceObject: {fileID: 5917313277999437111, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
+  m_PrefabInstance: {fileID: 863640569}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &830641282 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
-  m_PrefabInstance: {fileID: 1491802404}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &830641292
+--- !u!114 &533475060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830641282}
+  m_GameObject: {fileID: 533475055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6435c59e7bb344d59b5093a8aa61b4e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
-  maxHealth: 10
-  currentHealth: 0
-  isDead: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SpikeCrash
+  settingDamageType: 4
+  settingDamage: 5
 --- !u!1001 &863640569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,7 +193,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5917313277999437111, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533475060}
   m_SourcePrefab: {fileID: 100100000, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
 --- !u!1001 &911609062
 PrefabInstance:
@@ -263,21 +260,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 657086086551020153, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
   m_PrefabInstance: {fileID: 1679511578}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1263601254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233652950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
-  maxHealth: 10
-  currentHealth: 0
-  isDead: 0
 --- !u!1001 &1491802404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,14 +316,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4107695405561254168, guid: e30d71a3e22446543942918a8af557b3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6564146274724886777, guid: e30d71a3e22446543942918a8af557b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 830641292}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30d71a3e22446543942918a8af557b3, type: 3}
 --- !u!1001 &1679511578
 PrefabInstance:
@@ -398,10 +376,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1263601254}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
 --- !u!1001 &1772814482471691649
 PrefabInstance:

@@ -46,8 +46,9 @@ namespace Game.Combat
         {
             attackInfo.damageType = settingDamageType;
             attackInfo.damage = settingDamage;
-            
-            attacker = gameObject;
+
+            if (attacker == null)
+                attacker = gameObject;
         }
 
         // 재사용 시 초기화
@@ -91,8 +92,11 @@ namespace Game.Combat
             }
         }
 
-        public virtual void ProcessAttackDamage(Collision other)
+        public virtual bool ProcessAttackDamage(Collision other)
         {
+            if (other.gameObject == attacker)
+                return false;
+            
             CalculateDamage(out var damageDealt, out var damageTaken);
             
             // 입힌 데미지 처리
@@ -106,10 +110,12 @@ namespace Game.Combat
             // 받은 데미지 처리
             if (damageTaken > 0.0f)
             {
-                SharedHealth mySharedHealth = gameObject.GetComponent<SharedHealth>();
+                SharedHealth mySharedHealth = attacker.GetComponent<SharedHealth>();
                 if(mySharedHealth != null)
                     mySharedHealth.TakeDamage(damageTaken);
             }
+            
+            return true;
         }
     }
 }

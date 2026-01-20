@@ -85,9 +85,9 @@ namespace Game.Characters
                 
                 if (projectile == null || projectile.gameObject.activeSelf == true)
                     continue;
-                
-                projectile.Deactivate();
-                
+
+                projectile.SetActivate(false);
+
             }
             
             currentProjectileCount = 0;

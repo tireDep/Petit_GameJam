@@ -43,32 +43,32 @@ namespace Game.Combat
                 Debug.LogWarning($"Projectile {gameObject.name}: Cannot launch without Rigidbody", gameObject);
                 return;
             }
+            
+            // 초기화
+            ResetAttack();
 
             base.attacker = attacker;
             this.direction = direction.normalized;
-            isActive = true;
-            gameObject.SetActive(true);
+            
+            SetActivate(true);
         }
         
         /// 발사체 비활성화 및 초기화
-        public void Deactivate()
+        public void SetActivate(bool bSet)
         {
-            isActive = false;
-            direction = Vector3.zero;
-            ResetAttack();
-            gameObject.SetActive(false);
+            isActive = bSet;
+            gameObject.SetActive(bSet);
         }
 
         public void OnCollisionEnter(Collision other)
         {
-            base.ProcessAttackDamage(other);
-
-            Deactivate();
+            // 공격이 성공한 경우에만 비활성화
+            if (base.ProcessAttackDamage(other) == true)
+                SetActivate(false);
         }
         
         public override void ResetAttack()
         {
-            isActive = false;
             direction = Vector3.zero;
             base.ResetAttack();
         }

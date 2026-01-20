@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Combat;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,13 +26,21 @@ namespace Game.UI
         [SerializeField]
         private Material lineMaterial;
         
+        [SerializeField]
+        private int sortLayer;
+        
         private LineRenderer lineRenderer;
         private const int POSITION_COUNT = 2;
 
         private void Start()
         {
-            lineRenderer = gameObject.AddComponent<LineRenderer>();
+            lineRenderer = GetComponent<LineRenderer>();
+            if(lineRenderer == null)
+                lineRenderer = gameObject.AddComponent<LineRenderer>();
+            
             ResetLineRenderer();
+            
+            SharedHealth.OnDeath += OnDeathEvent;
         }
 
         private void Update()
@@ -54,6 +63,7 @@ namespace Game.UI
             lineRenderer.startWidth = lineWidth;
             lineRenderer.endWidth = lineWidth;
             lineRenderer.positionCount = POSITION_COUNT;
+            lineRenderer.sortingOrder = sortLayer;
 
             SetEnabled(true);
         }
@@ -70,6 +80,11 @@ namespace Game.UI
                 return;
             
             lineRenderer.enabled = bSet;
+        }
+
+        private void OnDeathEvent()
+        {
+            SetEnabled(false);
         }
 
         private void UpdateLineRenderer()

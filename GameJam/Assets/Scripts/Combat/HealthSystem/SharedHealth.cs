@@ -5,6 +5,12 @@ namespace Game.Combat
 {
     public class SharedHealth : MonoBehaviour
     {
+        // Delegate 타입선언
+        public delegate void OnDeathDelegate();
+
+        // 이벤트 선언
+        public static event OnDeathDelegate OnDeath;
+        
         [SerializeField] 
         private float maxHealth = 10.0f;
         
@@ -32,6 +38,9 @@ namespace Game.Combat
                 isDead = true;
                 gameObject.SetActive(false);
                 Debug.Log("SET DEAD!");
+                
+                // ?. : null 체크랑 동일
+                OnDeath?.Invoke();
             }
         }
         

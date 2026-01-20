@@ -119,25 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &533475055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5917313277999437111, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
-  m_PrefabInstance: {fileID: 863640569}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &533475060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533475055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6435c59e7bb344d59b5093a8aa61b4e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SpikeCrash
-  settingDamageType: 4
-  settingDamage: 5
 --- !u!1001 &863640569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,10 +174,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5917313277999437111, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 533475060}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8ddbe0cbf55fc444bda32970e3d7685, type: 3}
 --- !u!1001 &911609062
 PrefabInstance:
@@ -270,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1239454905
 Transform:
   m_ObjectHideFlags: 0
@@ -299,10 +277,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 375112144067089284, guid: e30d71a3e22446543942918a8af557b3, type: 3}
-      propertyPath: maxHealth
-      value: 100000
-      objectReference: {fileID: 0}
     - target: {fileID: 5091212512373789604, guid: e30d71a3e22446543942918a8af557b3, type: 3}
       propertyPath: target
       value: 
@@ -366,7 +340,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 657086086551020153, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.056
       objectReference: {fileID: 0}
     - target: {fileID: 657086086551020153, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
       propertyPath: m_LocalPosition.y
@@ -404,9 +378,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8212265808520663405, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
-      propertyPath: maxHealth
-      value: 100000
+    - target: {fileID: 8301675274787688889, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301675274787688889, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8588601130082805696, guid: d5e043d70c288c04c8eaaed242c46e77, type: 3}
       propertyPath: m_Name
@@ -473,6 +451,14 @@ PrefabInstance:
     - target: {fileID: 8346366176506486167, guid: 23e34b4e8ed012c43945a563009796d7, type: 3}
       propertyPath: m_Name
       value: ConnectLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346366176506486167, guid: 23e34b4e8ed012c43945a563009796d7, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460552110021324238, guid: 23e34b4e8ed012c43945a563009796d7, type: 3}
+      propertyPath: sortLayer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8460552110021324238, guid: 23e34b4e8ed012c43945a563009796d7, type: 3}
       propertyPath: endTransform

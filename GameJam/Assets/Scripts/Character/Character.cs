@@ -6,8 +6,7 @@ using UnityEngine;
 
 namespace Game.Characters
 {
-    // 플레이어/적 공통의 생존 상태와 피해 진입점을 제공하는 추상 베이스 클래스
-    // SharedHealth와 DamageType은 이후에 정의될 타입이므로 현재는 참조만 합니다.
+    // 추상 베이스 클래스
     public abstract class Character : MonoBehaviour
     {
         protected SharedHealth sharedHealth;
@@ -30,9 +29,6 @@ namespace Game.Characters
         
         [SerializeField]
         protected float blinkDuration = 0.1f;
-        
-        [SerializeField]
-        protected int blinkCount = 3;
         
         [SerializeField]
         protected Material basicMaterial;
@@ -80,6 +76,7 @@ namespace Game.Characters
             StartCoroutine(StopKnockback(knockbackDuration));
         }
 
+        // 넉백 처리 코루틴
         IEnumerator StopKnockback(float delay)
         {
             yield return new WaitForSeconds(delay);
@@ -88,15 +85,13 @@ namespace Game.Characters
             isKnockbacked = false;
         }
 
+        // 깜박임 처리 코루틴
         IEnumerator PlayBlink()
         {
             while (isKnockbacked)
             {
                 for (int index = 0; index < renders.Count; index++)
                 {
-                    if(renders[index] == gameObject.GetComponent<LineRenderer>())
-                        continue;
-                    
                     if (renders[index].sharedMaterial == basicMaterial)
                     {
                         renders[index].material = knockbackMaterial;
@@ -118,6 +113,7 @@ namespace Game.Characters
             blinkCoroutine = null;
         }
 
+        // 이동 멈춤
         void SetAllVelocityZero()
         {
             rb.linearVelocity = Vector3.zero;

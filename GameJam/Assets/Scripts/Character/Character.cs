@@ -40,7 +40,7 @@ namespace Game.Characters
         [SerializeField]
         protected Material knockbackMaterial;
 
-        virtual protected void Start()
+        protected virtual void Start()
         {
             sharedHealth = GetComponent<SharedHealth>();
         }
@@ -94,6 +94,9 @@ namespace Game.Characters
             {
                 for (int index = 0; index < renders.Count; index++)
                 {
+                    if(renders[index] == gameObject.GetComponent<LineRenderer>())
+                        continue;
+                    
                     if (renders[index].sharedMaterial == basicMaterial)
                     {
                         renders[index].material = knockbackMaterial;

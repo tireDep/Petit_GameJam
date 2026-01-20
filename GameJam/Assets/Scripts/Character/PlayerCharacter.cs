@@ -34,8 +34,10 @@ namespace Game.Characters
         [SerializeField]
         private float reloadTime = 1;   // 리로드 시간
 
-        private void Awake()
+        protected new virtual void Start()
         {
+            base.Start();
+            
             rb = GetComponent<Rigidbody>();
             renders.AddRange(GetComponentsInChildren<Renderer>());
             triggerPosition = GetComponentInChildren<BoxCollider>();

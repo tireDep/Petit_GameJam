@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Manager;
 using UnityEngine;
 
 namespace Game.Combat
@@ -41,6 +42,11 @@ namespace Game.Combat
                 
                 // ?. : null 체크랑 동일
                 OnDeath?.Invoke();
+                
+                GameManager gameManager = GameManager.Instance;
+                if (gameManager != null)
+                    gameManager.OnDeathEvent(gameObject.tag);
+                
             }
         }
         

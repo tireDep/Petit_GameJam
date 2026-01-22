@@ -311,6 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
-  maxHealth: 100000
+  maxHealth: 10
   currentHealth: 0
   isDead: 0

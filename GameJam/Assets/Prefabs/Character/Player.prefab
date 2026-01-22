@@ -340,7 +340,7 @@ MonoBehaviour:
   knockbackMaterial: {fileID: 2100000, guid: 86369b95371b8a8498ef81e5a3f7f887, type: 2}
   projectilePrefab: {fileID: -2986780465550653013, guid: 403cd4c52ad6961458ae1dd21ff6a741, type: 3}
   maxProjectiles: 5
-  shootCooldown: 0.3
+  shootCooldown: 0
   reloadTime: 1
 --- !u!114 &4002890471919185850
 MonoBehaviour:
@@ -384,6 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf36c771c752476fac11f1d1bb07bacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.SharedHealth
-  maxHealth: 100000
+  maxHealth: 100
   currentHealth: 0
   isDead: 0

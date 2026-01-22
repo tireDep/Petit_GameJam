@@ -62,9 +62,7 @@ namespace Game.Combat
 
         public void OnCollisionEnter(Collision other)
         {
-            // 공격이 성공한 경우에만 비활성화
-            if (base.ProcessAttackDamage(other) == true)
-                SetActivate(false);
+            SetActivate(false);
         }
         
         public override void ResetAttack()

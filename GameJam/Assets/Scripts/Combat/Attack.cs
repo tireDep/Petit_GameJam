@@ -94,7 +94,10 @@ namespace Game.Combat
 
         public virtual bool ProcessAttackDamage(Collision other)
         {
-            if (other.gameObject == attacker)
+            if (other.gameObject == attacker
+                || Equals(attacker.tag, "Player")
+                || Equals(attacker.tag, "Enemy")
+                )
                 return false;
             
             CalculateDamage(out var damageDealt, out var damageTaken);

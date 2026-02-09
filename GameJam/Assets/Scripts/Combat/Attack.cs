@@ -3,6 +3,7 @@ using System;
 
 namespace Game.Combat
 {
+	// 공격 타입
     public enum DamageType
     {
         DT_INVALID = 0,
@@ -16,10 +17,11 @@ namespace Game.Combat
         DT_MAX,
     }
     
+	// 공격 정보
     public struct AttackInfo
     {
-        public DamageType damageType;  // 데미지 타입
-        public float damage; // 데미지
+        public DamageType damageType; 	// 데미지 타입
+        public float damage; 			// 데미지
         
         public AttackInfo(DamageType damageType, float damage)
         {
@@ -92,6 +94,7 @@ namespace Game.Combat
             }
         }
 
+		// 데미지 처리 함수
         public virtual bool ProcessAttackDamage(Collision other)
         {
             if (other.gameObject == attacker

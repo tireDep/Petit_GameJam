@@ -4,11 +4,7 @@ using UnityEngine;
 
 namespace Game.Combat
 {
-    /// <summary>
-    /// 발사체: 활성화 시 설정된 방향(direction)으로 이동
-    /// - Rigidbody 기반, MovePosition으로 직접 이동
-    /// - 충돌 시 자동으로 비활성화 및 초기화
-    /// </summary>
+	// 발사체
     public class Projectile : Attack
     {
         [SerializeField]
@@ -35,7 +31,7 @@ namespace Game.Combat
             rb.MovePosition(rb.position + displacement);
         }
         
-        /// 발사체 발사: 방향과 공격자 설정
+        // 발사체 발사: 방향과 공격자 설정
         public void Launch(Vector3 direction, GameObject attacker)
         {
             if (rb == null)
@@ -53,7 +49,7 @@ namespace Game.Combat
             SetActivate(true);
         }
         
-        /// 발사체 비활성화 및 초기화
+        // 발사체 비활성화 및 초기화
         public void SetActivate(bool bSet)
         {
             isActive = bSet;

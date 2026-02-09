@@ -9,7 +9,7 @@ namespace Game.Characters
     public class EnemyCharacter : Character
     {
         [SerializeField]
-        private Transform target;
+        private Transform target;				// 추적할 대상 Transform
 
         protected new virtual void Start()
         {
@@ -19,14 +19,12 @@ namespace Game.Characters
             renders.AddRange(GetComponentsInChildren<Renderer>());
         }
 
-        /// 추적할 대상 설정
+        // 추적할 대상 설정
         public void SetTarget(Transform setTarget)
         {
             target = setTarget;
             if (target == null)
-            {
                 Debug.LogWarning($"{nameof(EnemyCharacter)}: Target set to null.");
-            }
         }
 
         private void Update()
@@ -79,9 +77,7 @@ namespace Game.Characters
 
             // Target 재확인 (Update와의 동기화)
             if (target == null)
-            {
                 moveInput = Vector3.zero;
-            }
 
             // MovePosition으로 이동 (XZ 평면, Y축 없음)
             Vector3 displacement = moveInput * moveSpeed * Time.fixedDeltaTime;

@@ -8,31 +8,25 @@ using UnityEngine.InputSystem;
 
 namespace Game.Characters
 {
-    // PlayerCharacter: 간단한 Rigidbody 기반 직접 이동 구현
-    // - 한 파일에 한 클래스
-    // - 입력: WASD (Horizontal/Vertical)
-    // - 이동은 XZ 평면
-    // - FixedUpdate에서 Rigidbody.MovePosition 사용
-    // - 발사체: 좌클릭으로 마우스 방향 발사, 오브젝트 풀 방식
     public class PlayerCharacter : Character
     {
         [SerializeField]
         private Game.Combat.Projectile projectilePrefab;
 
         [SerializeField]
-        private int maxProjectiles = 5;
+        private int maxProjectiles = 5;         // 최대 발사체 수
 
         [SerializeField]
-        private float shootCooldown = 0.3f;
+        private float shootCooldown = 0.3f;     // 
 
         private List<Game.Combat.Projectile> projectilePool = new List<Game.Combat.Projectile>();
-        private int currentProjectileCount = 0;
-        private float lastShootTime = -1f;
+        private int currentProjectileCount = 0; // 현재 보유한 발사체 수
+        private float lastShootTime = -1f;      // 재발사 시간
 
         private BoxCollider triggerPosition;    // 발사체 발사 위치
 
         [SerializeField]
-        private float reloadTime = 1;   // 리로드 시간
+        private float reloadTime = 1;           // 리로드 시간
 
         protected new virtual void Start()
         {
@@ -45,7 +39,7 @@ namespace Game.Characters
             InitializeProjectilePool();
         }
         
-        /// 발사체 풀 초기화: 최대 개수만큼 미리 생성
+        /// 발사체 풀 초기화(최대 개수 만큼 미리 생성)
         private void InitializeProjectilePool()
         {
             if (projectilePrefab == null)
@@ -94,14 +88,11 @@ namespace Game.Characters
             Debug.Log("Projectile Returned to Pool");
         }
 
-        // Input Actions
+        // 입력 처리
         void OnMove(InputValue value)
         {
             if (isKnockbacked)
-            {
-                Debug.Log("Knockbacked");
                 return;
-            }
             
             if (!isAlive)
             {
@@ -136,6 +127,7 @@ namespace Game.Characters
             }
         }
 
+        // 공격 처리
         void OnAttack(InputValue value)
         {
             if (!isAlive)
@@ -149,7 +141,7 @@ namespace Game.Characters
             lastShootTime = Time.time;
         }
         
-        /// 발사체 발사: triggerPosition 위치에서 캐릭터 전방 방향으로
+        /// triggerPosition 위치에서 캐릭터 전방 방향으로 발사체 발사
         private void ShootProjectile()
         {
             Game.Combat.Projectile projectile = GetProjectileFromPool();
@@ -159,12 +151,12 @@ namespace Game.Characters
                 return;
             }
 
-            // 발사 위치: triggerPosition의 위치
+            // triggerPosition의 위치에서 발사
             Vector3 shootPosition = triggerPosition != null 
                 ? triggerPosition.bounds.center 
                 : transform.position;
 
-            // 발사 방향 : 플레이어가 바라보는 방향
+            // 플레이어가 바라보는 방향으로 발사
             Vector3 shootDirection = -transform.right; // left
             shootDirection.y = 0f; // XZ 평면으로 제한
 
@@ -177,6 +169,7 @@ namespace Game.Characters
                 StartCoroutine(ReloadProjectiles());
         }
         
+        // 발사체 재장전
         IEnumerator ReloadProjectiles()
         {
             yield return new WaitForSeconds(reloadTime);
@@ -197,8 +190,7 @@ namespace Game.Characters
 
             if (rb == null)
                 return;
-
-            // Rigidbody.MovePosition을 사용하면 물리 시스템과 충돌/interpolation을 지키며 이동합니다.
+            
             Vector3 displacement = moveInput * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + displacement);
         }

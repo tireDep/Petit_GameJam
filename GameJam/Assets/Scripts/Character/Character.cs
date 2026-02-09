@@ -6,35 +6,35 @@ using UnityEngine;
 
 namespace Game.Characters
 {
-    // 추상 베이스 클래스
+    // 캐릭터 추상 베이스 클래스
     public abstract class Character : MonoBehaviour
     {
-        protected SharedHealth sharedHealth;
+        protected SharedHealth sharedHealth;	// 체력
         protected bool isAlive => sharedHealth != null && !sharedHealth.CheckDead;
         
         protected Rigidbody rb;
         protected List<Renderer> renders = new List<Renderer>();
-        protected Vector3 moveInput = Vector3.zero;
-        protected bool isKnockbacked = false;   // 넉백 여부
-        protected Coroutine blinkCoroutine;
+        protected Vector3 moveInput = Vector3.zero;	// 입력 방향
+        protected bool isKnockbacked = false;   	// 넉백 여부
+        protected Coroutine blinkCoroutine;			// 깜빡임 코루틴
 
         [SerializeField] 
-        protected float moveSpeed = 5.0f;
+        protected float moveSpeed = 5.0f;			// 이동 속도
         
         [SerializeField]
-        protected float knockbackForce = 5.0f;
+        protected float knockbackForce = 5.0f;		// 넉백 힘
         
         [SerializeField]
-        protected float knockbackDuration = 0.2f;
+        protected float knockbackDuration = 0.2f;	// 넉백 시간
         
         [SerializeField]
-        protected float blinkDuration = 0.1f;
+        protected float blinkDuration = 0.1f;		// 깜빡임 시간
         
         [SerializeField]
-        protected Material basicMaterial;
+        protected Material basicMaterial;			// 기본 재질
         
         [SerializeField]
-        protected Material knockbackMaterial;
+        protected Material knockbackMaterial;		// 넉백 재질
 
         protected virtual void Start()
         {
@@ -56,7 +56,6 @@ namespace Game.Characters
             // 기존 속도 zero 처리
             SetAllVelocityZero();
             
-            // todo : 랜덤 넉백값 추가?
             // 넉백 처리
             isKnockbacked = true;
             knockbackDirection.y = 0.0f;
